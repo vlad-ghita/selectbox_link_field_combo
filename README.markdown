@@ -70,9 +70,9 @@ Persons<br />
 - `Relation` : Countries-&gt;Continent (SBL\#1)<br />
 **SAVE the Section first. Next field needs SBLC\#1's ID from Database.**<br />
 4. SBLC\#2: City<br />
-- `Parent` : Persons-&gt;Country (SBLC1)<br />
+- `Parent` : Persons-&gt;Country (SBLC\#1)<br />
 - `Values` : Cities-&gt;Title<br />
-- `Relation` : Cities-&gt;Country (SBL2)
+- `Relation` : Cities-&gt;Country (SBL\#2)
 
 Enjoy!
 
