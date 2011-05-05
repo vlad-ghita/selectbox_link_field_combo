@@ -60,13 +60,13 @@ Persons<br />
 2. SBL3: Continent. Values:Continents-&gt;Title<br />
 **SAVE the Section first. Next field needs SBL3's ID from Database.**<br />
 3. SBLC1: Country<br />
-- `Parent` : Persons-&gt;Continent (SBL3)
-- `Values` : Countries-&gt;Title
+- `Parent` : Persons-&gt;Continent (SBL3)<br />
+- `Values` : Countries-&gt;Title<br />
 - `Relation` : Countries-&gt;Continent (SBL1)<br />
 **SAVE the Section first. Next field needs SBLC1's ID from Database.**<br />
 4. SBLC2: City<br />
-- `Parent` : Persons-&gt;Countries (SBLC1)
-- `Values` : Cities-&gt;Title
+- `Parent` : Persons-&gt;Countries (SBLC1)<br />
+- `Values` : Cities-&gt;Title<br />
 - `Relation` : Cities-&gt;Country (SBL2)
 
 Enjoy!
