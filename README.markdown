@@ -51,25 +51,25 @@ Continents<br />
 
 Countries<br />
 1. Text Input: Title<br />
-2. SBL1: Continent<br />
+2. SBL\#1: Continent<br />
 - `Values` : Continents-&gt;Title
 
 Cities<br />
 1. Text Input: Title<br />
-2. SBL2: Country<br />
+2. SBL\#2: Country<br />
 - `Values` : Countries-&gt;Title
   
 Persons<br />
 1. Text Input: Name<br />
-2. SBL3: Continent<br />
+2. SBL\#3: Continent<br />
 - `Values` : Continents-&gt;Title<br />
-**SAVE the Section first. Next field needs SBL3's ID from Database.**<br />
-3. SBLC1: Country<br />
-- `Parent` : Persons-&gt;Continent (SBL3)<br />
+**SAVE the Section first. Next field needs SBL\#3's ID from Database.**<br />
+3. SBLC\#1: Country<br />
+- `Parent` : Persons-&gt;Continent (SBL\#3)<br />
 - `Values` : Countries-&gt;Title<br />
-- `Relation` : Countries-&gt;Continent (SBL1)<br />
-**SAVE the Section first. Next field needs SBLC1's ID from Database.**<br />
-4. SBLC2: City<br />
+- `Relation` : Countries-&gt;Continent (SBL\#1)<br />
+**SAVE the Section first. Next field needs SBLC\#1's ID from Database.**<br />
+4. SBLC\#2: City<br />
 - `Parent` : Persons-&gt;Country (SBLC1)<br />
 - `Values` : Cities-&gt;Title<br />
 - `Relation` : Cities-&gt;Country (SBL2)
