@@ -9,6 +9,7 @@
 				'release-date' => '2011-05-04',
 				'author' => array(
 					'name' => 'Vlad Ghita',
+					'email' => 'vlad_micutul@yahoo.com'
 				)
 			);
 		}
