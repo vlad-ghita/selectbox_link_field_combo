@@ -34,6 +34,8 @@ SBLC = Select Box Link Combo
 
 - Setting an instance of the field to be not required will cause an empty option to show up on the publish form.
 
+- Always the root of a chain will be a SBL.
+
 The settings of Select Box Link Combo describe the behavior of the field. One will need to set the following:
 
 - `Parent` of the select. It will be another SBL / SBLC from **current** section.
