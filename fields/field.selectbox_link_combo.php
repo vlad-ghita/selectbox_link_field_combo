@@ -525,14 +525,16 @@
 			$section_id = Administration::instance()->Page->_context[1];
 			
 			$fields = array();
-
-			foreach($field_groups[$section_id]['fields'] as $f){
-				if($f->get('id') != $this->get('id') && in_array($f->get('id'), $eligible_parents)){
-					$fields[] = array(
-						$f->get('id'),
-						($f->get('id') == $this->get('parent_field_id')),
-						$f->get('label')
-					);
+			
+			if ( !empty($eligible_parents) ) {
+				foreach($field_groups[$section_id]['fields'] as $f){
+					if($f->get('id') != $this->get('id') && in_array($f->get('id'), $eligible_parents)){
+						$fields[] = array(
+							$f->get('id'),
+							($f->get('id') == $this->get('parent_field_id')),
+							$f->get('label')
+						);
+					}
 				}
 			}
 
@@ -577,22 +579,24 @@
 			$options = array();
 			$eligible_parents = $this->_fetchEligibleParents('relation');
 			
-			foreach($field_groups as $group){
-				if(!is_array($group['fields'])) continue;
-
-				$fields = array();
-
-				foreach($group['fields'] as $f){
-					if($f->get('id') != $this->get('id') && in_array($f->get('id'), $eligible_parents)){
-						$fields[] = array(
-							$f->get('id'),
-							($f->get('id') == $this->get('relation_id')),
-							$f->get('label')
-						);
+			if ( !empty($eligible_parents) ) {
+				foreach($field_groups as $group){
+					if(!is_array($group['fields'])) continue;
+	
+					$fields = array();
+	
+					foreach($group['fields'] as $f){
+						if($f->get('id') != $this->get('id') && in_array($f->get('id'), $eligible_parents)){
+							$fields[] = array(
+								$f->get('id'),
+								($f->get('id') == $this->get('relation_id')),
+								$f->get('label')
+							);
+						}
 					}
+	
+					if(is_array($fields) && !empty($fields)) $options[] = array('label' => $group['section']->get('name'), 'options' => $fields);
 				}
-
-				if(is_array($fields) && !empty($fields)) $options[] = array('label' => $group['section']->get('name'), 'options' => $fields);
 			}
 			
 			$label->appendChild(Widget::Select('fields['.$this->get('sortorder').'][relation_id]', $options));
@@ -626,12 +630,13 @@
 		}
 		
 		/**
-		 * 
 		 * find SBLs and SBLCs to be parents for this one
 		 */
 		private function _fetchEligibleParents($mode) {
 			$section_id = Administration::instance()->Page->_context[1];
 			$thisid = $this->get('id');
+			
+			$result = array();
 			
 			$where = 'AND (type = "selectbox_link" OR type = "selectbox_link_combo")';
 			if ( !empty($thisid) ) {
@@ -641,26 +646,36 @@
 			$fm = new FieldManager(Symphony::Engine());
 			$fields = $fm->fetch(NULL, $section_id, 'ASC', 'sortorder', NULL, NULL, $where);
 			
-			if ( $mode == 'parent' ) { $op1 = 'OR'; $op2 = '='; }
-			else { $op1 = 'AND'; $op2 = '!='; }
+			if ( !empty($fields) ) {
 			
-			$where = '';
-			foreach ( $fields as $field ) {
-				$where .= ( !empty($where) ) ? " {$op1} " : '';
-				$where .= "field_id {$op2} ". $field->get('id') .' ';
+				// get SBLs and SBLCs from current section
+				if ( $mode == 'parent' ) {
+					$op1 = 'OR';
+					$op2 = '=';
+				}
+				
+				// get SBLs and SBLCs outside current section
+				else {
+					$op1 = 'AND';
+					$op2 = '!=';
+				}
+				
+				$where = '';
+				foreach ( $fields as $field ) {
+					$where .= ( !empty($where) ) ? " {$op1} " : '';
+					$where .= "field_id {$op2} ". $field->get('id') .' ';
+				}
+				$where = 'WHERE '. $where;
+				
+				$arr_sbl = Symphony::Database()->fetch("SELECT `field_id` FROM `tbl_fields_selectbox_link` {$where}");
+				$arr_sblc = Symphony::Database()->fetch("SELECT `field_id` FROM `tbl_fields_selectbox_link_combo` {$where}");
+				$arr_all = array_merge($arr_sbl, $arr_sblc);
+				
+				foreach ($arr_all as $field) {
+					$result[] = $field['field_id'];
+				}
 			}
-			$where = 'WHERE '. $where;
-			
-			$arr_sbl = Symphony::Database()->fetch("SELECT `field_id` FROM `tbl_fields_selectbox_link` {$where}");
-			$arr_sblc = Symphony::Database()->fetch("SELECT `field_id` FROM `tbl_fields_selectbox_link_combo` {$where}");
-			$arr_all = array_merge($arr_sbl, $arr_sblc);
-			
-			$result = array();
-			
-			foreach ($arr_all as $field) {
-				$result[] = $field['field_id'];
-			}
-			
+
 			return $result;
 		}
 
