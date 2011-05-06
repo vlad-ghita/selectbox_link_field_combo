@@ -526,7 +526,7 @@
 			
 			$fields = array();
 			
-			if ( !empty($eligible_parents) ) {
+			if ( !empty($eligible_parents) && isset($section_id) ) {
 				foreach($field_groups[$section_id]['fields'] as $f){
 					if($f->get('id') != $this->get('id') && in_array($f->get('id'), $eligible_parents)){
 						$fields[] = array(
@@ -661,11 +661,13 @@
 				}
 				
 				$where = '';
-				foreach ( $fields as $field ) {
-					$where .= ( !empty($where) ) ? " {$op1} " : '';
-					$where .= "field_id {$op2} ". $field->get('id') .' ';
+				if ( !empty($section_id) ) {
+					foreach ( $fields as $field ) {
+						$where .= ( !empty($where) ) ? " {$op1} " : '';
+						$where .= "field_id {$op2} ". $field->get('id') .' ';
+					}
+					$where = 'WHERE '. $where;
 				}
-				$where = 'WHERE '. $where;
 				
 				$arr_sbl = Symphony::Database()->fetch("SELECT `field_id` FROM `tbl_fields_selectbox_link` {$where}");
 				$arr_sblc = Symphony::Database()->fetch("SELECT `field_id` FROM `tbl_fields_selectbox_link_combo` {$where}");
