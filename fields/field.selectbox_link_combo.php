@@ -363,7 +363,11 @@
 									in_array($id, $entry_ids), 
 									General::sanitize($v['value']), 
 									null, 
-									"parent-{$this->get('parent_field_id')}-".General::sanitize($v['parent_id'])
+									null,
+									array(
+										'data-parent' => $this->get('parent_field_id'),
+										'data-selector' => General::sanitize($v['parent_id'])
+									)
 						);
 					}
 					$options[] = $group;
@@ -566,7 +570,7 @@
 				if(is_array($fields) && !empty($fields)) $options[] = array('label' => $group['section']->get('name'), 'options' => $fields);
 			}
 
-			$label->appendChild(Widget::Select('fields['.$this->get('sortorder').'][related_field_id][]', $options, array('multiple' => 'multiple')));
+			$label->appendChild(Widget::Select('fields['.$this->get('sortorder').'][related_field_id][]', $options));
 
 			if(isset($errors['related_field_id'])) $wrapper->appendChild(Widget::wrapFormElementWithError($label, $errors['related_field_id']));
 			else $wrapper->appendChild($label);
