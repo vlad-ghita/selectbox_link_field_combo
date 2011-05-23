@@ -5,8 +5,8 @@
 		public function about(){
 			return array(
 				'name' => 'Field: Select Box Link Combo',
-				'version' => '1.0beta',
-				'release-date' => '2011-05-04',
+				'version' => '1.0beta2',
+				'release-date' => '2011-05-23',
 				'author' => array(
 					'name' => 'Vlad Ghita',
 					'email' => 'vlad_micutul@yahoo.com'
@@ -50,9 +50,9 @@
 					  `field_id` int(11) unsigned NOT NULL,
 					  `allow_multiple_selection` enum('yes','no') NOT NULL default 'no',
 					  `show_association` enum('yes','no') NOT NULL default 'yes',
-					  `related_field_id` VARCHAR(255) NOT NULL,
 					  `parent_field_id` int(11) unsigned NOT NULL,
-					  `relation_id` int(11) unsigned NOT NULL,
+					  `related_field_id` VARCHAR(255) NOT NULL,
+					  `relation_field_id` int(11) unsigned NOT NULL,
 					  `limit` int(4) unsigned NOT NULL default '20',
 				  PRIMARY KEY  (`id`),
 				  KEY `field_id` (`field_id`)

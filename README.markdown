@@ -1,7 +1,7 @@
 Select Box Link Field Combo 
 ------------------------------------
 
-Version: 1.0beta<br />
+Version: 1.0beta2<br />
 Author: [Vlad Ghita](vlad_micutul@yahoo.com)<br />
 Build Date: 4th May 2011<br />
 Requirements:<br />
@@ -77,5 +77,9 @@ Persons<br />
 Enjoy!
 
 ##CHANGE LOG##
+
+1.0beta2<br />
+- Field rewrite. Better error checking on field settings.<br />
+- New and improved JS (good job Nils)
 
 1.0beta	- Initial release.
