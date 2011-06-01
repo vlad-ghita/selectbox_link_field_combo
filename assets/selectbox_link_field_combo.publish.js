@@ -11,17 +11,17 @@
 				optgroup = select.find('optgroup'),
 				options = optgroup.find('option').remove(),
 				parent = $('#field-' + options.data('parent') + ' select');
-										
+				
 			// Parent changes context
 			parent.change(function(event) {
-				var selected = parent.val(),
+				var selected = $.isArray(parent.val()) ? parent.val() : [parent.val()],
 					current = optgroup.find('option').remove();
-				
 				// Remove current selection
 				options.add(current);
 				
 				// Add new options
 				$.each(selected, function(index, value) {
+					console.log(value);
 					options.filter('[data-selector="' + value + '"]').clone().appendTo(optgroup);
 				});
 				
