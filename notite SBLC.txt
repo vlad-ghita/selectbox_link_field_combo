@@ -1,5 +1,0 @@
-Filtru pentru values si pentru Relation
-
-https://github.com/vlad-ghita/selectbox_link_field_combo/issues/3#comment_1196590
-
-Mostenire ... =))
