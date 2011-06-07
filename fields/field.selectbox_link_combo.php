@@ -395,12 +395,12 @@
 
 			$entry_ids = array();
 
-			if(!is_null($data['relation_field_id'])){
-				if(!is_array($data['relation_field_id'])){
-					$entry_ids = array($data['relation_field_id']);
+			if(!is_null($data['relation_id'])){
+				if(!is_array($data['relation_id'])){
+					$entry_ids = array($data['relation_id']);
 				}
 				else{
-					$entry_ids = array_values($data['relation_field_id']);
+					$entry_ids = array_values($data['relation_id']);
 				}
 			}
 
