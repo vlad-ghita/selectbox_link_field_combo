@@ -21,7 +21,6 @@
 				
 				// Add new options
 				$.each(selected, function(index, value) {
-					console.log(value);
 					options.filter('[data-selector="' + value + '"]').clone().appendTo(optgroup);
 				});
 				
