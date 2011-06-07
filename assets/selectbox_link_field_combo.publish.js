@@ -16,12 +16,12 @@
 			parent.change(function(event) {
 				var selected = $.isArray(parent.val()) ? parent.val() : [parent.val()],
 					current = optgroup.find('option').remove();
-				
 				// Remove current selection
 				options.add(current);
 				
 				// Add new options
 				$.each(selected, function(index, value) {
+					console.log(value);
 					options.filter('[data-selector="' + value + '"]').clone().appendTo(optgroup);
 				});
 				
