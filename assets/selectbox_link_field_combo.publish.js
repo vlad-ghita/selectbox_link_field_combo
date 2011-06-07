@@ -16,6 +16,7 @@
 			parent.change(function(event) {
 				var selected = $.isArray(parent.val()) ? parent.val() : [parent.val()],
 					current = optgroup.find('option').remove();
+				
 				// Remove current selection
 				options.add(current);
 				
