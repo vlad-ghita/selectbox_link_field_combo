@@ -27,9 +27,6 @@ In short, it allows creation of chained select boxes in backend.
 
 ##USAGE##
 
-SBL = Select Box Link<br />
-SBLC = Select Box Link Combo
-
 - Works in an identical way to the standard `select box link field` with some additions for parent relation.
 
 - Setting an instance of the field to be not required will cause an empty option to show up on the publish form.
@@ -44,35 +41,47 @@ The settings of Select Box Link Combo describe the behavior of the field. One wi
 
 ###EXAMPLE###
 
+SBL = Select Box Link<br />
+SBLC = Select Box Link Combo
+
 Lets say you have a `Persons` Section and each person has to be localized on the globe by Continent->Country->City. One would create the following sections to store the info:
 
-Continents<br />
-1. Text Input: Title
+Secition `Continents`<br />
+1. Text Input<br />
+- `name` : Title
 
-Countries<br />
-1. Text Input: Title<br />
-2. SBL\#1: Continent<br />
-- `Values` : Continents-&gt;Title
+Section `Countries`<br />
+1. Text Input<br />
+- `name` : Title<br />
+2. Select Box Link (SBL\#1)
+- `name` : Continent<br />
+- `values` : Continents-&gt;Title
 
-Cities<br />
-1. Text Input: Title<br />
-2. SBL\#2: Country<br />
-- `Values` : Countries-&gt;Title
+Section `Cities`<br />
+1. Text Input<br />
+- `name` : Title<br />
+2. Select Box Link (SBL\#2)<br />
+- `name` : Country<br />
+- `values` : Countries-&gt;Title
   
 Persons<br />
-1. Text Input: Name<br />
-2. SBL\#3: Continent<br />
-- `Values` : Continents-&gt;Title<br />
-**SAVE the Section first. Next field needs SBL\#3's ID from Database.**<br />
-3. SBLC\#1: Country<br />
-- `Parent` : Persons-&gt;Continent (SBL\#3)<br />
-- `Values` : Countries-&gt;Title<br />
-- `Relation` : Countries-&gt;Continent (SBL\#1)<br />
-**SAVE the Section first. Next field needs SBLC\#1's ID from Database.**<br />
-4. SBLC\#2: City<br />
-- `Parent` : Persons-&gt;Country (SBLC\#1)<br />
-- `Values` : Cities-&gt;Title<br />
-- `Relation` : Cities-&gt;Country (SBL\#2)
+1. Text Input<br />
+- `name` : Name<br />
+2. Select Box Link (SBL\#3)<br />
+- `name` : Continent<br />
+- `galues` : Continents-&gt;Title<br />
+**SAVE the Section first. Next field needs SBL\#3's ID from Database**<br />
+3. Select Box Link Combo (SBLC\#1)<br />
+- `name` : Country<br />
+- `parent` : Persons-&gt;Continent (SBL\#3)<br />
+- `values` : Countries-&gt;Title<br />
+- `relation` : Countries-&gt;Continent (SBL\#1)<br />
+**SAVE the Section first. Next field needs SBLC\#1's ID from Database**<br />
+4. Select Box Link Combo (SBLC\#2)<br />
+- `name` : City<br />
+- `parent` : Persons-&gt;Country (SBLC\#1)<br />
+- `values` : Cities-&gt;Title<br />
+- `relation` : Cities-&gt;Country (SBL\#2)
 
 Enjoy!
 
