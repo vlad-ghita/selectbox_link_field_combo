@@ -53,7 +53,7 @@ Secition `Continents`<br />
 Section `Countries`<br />
 1. Text Input<br />
 - `name` : Title<br />
-2. Select Box Link (SBL\#1)
+2. Select Box Link (SBL\#1)<br />
 - `name` : Continent<br />
 - `values` : Continents-&gt;Title
 
@@ -69,7 +69,7 @@ Persons<br />
 - `name` : Name<br />
 2. Select Box Link (SBL\#3)<br />
 - `name` : Continent<br />
-- `galues` : Continents-&gt;Title<br />
+- `values` : Continents-&gt;Title<br />
 **SAVE the Section first. Next field needs SBL\#3's ID from Database**<br />
 3. Select Box Link Combo (SBLC\#1)<br />
 - `name` : Country<br />
