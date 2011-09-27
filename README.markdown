@@ -1,13 +1,12 @@
 Select Box Link Field Combo 
 ------------------------------------
 
-Version: 1.0beta2<br />
-Author: [Vlad Ghita](vlad_micutul@yahoo.com)<br />
-Build Date: 4th May 2011<br />
-Requirements:<br />
-  
-- Symphony 2.2.1 or greater. Untested in previous versions.
-- [Select Box Link Field](http://symphony-cms.com/download/extensions/view/20054/)
+* Version: 1.1
+* Author: [Vlad Ghita](vlad_micutul@yahoo.com)
+* Build Date: 2011-09-27
+* Requirements:
+	- Symphony 2.2 or greater.
+	- [Select Box Link Field](http://symphony-cms.com/download/extensions/view/20054/)
 
 In short, it allows creation of chained select boxes in backend.
 
@@ -48,47 +47,68 @@ Lets say you have a `Persons` Section and each person has to be localized on the
 
 Secition `Continents`<br />
 1. Text Input<br />
-- `name` : Title
+	- `name` : Title
 
+<br />
 Section `Countries`<br />
 1. Text Input<br />
-- `name` : Title<br />
+	- `name` : Title<br />
 2. Select Box Link (SBL\#1)<br />
-- `name` : Continent<br />
-- `values` : Continents-&gt;Title
+	- `name` : Continent<br />
+	- `values` : Continents-&gt;Title
 
+<br />
 Section `Cities`<br />
 1. Text Input<br />
-- `name` : Title<br />
+	- `name` : Title<br />
 2. Select Box Link (SBL\#2)<br />
-- `name` : Country<br />
-- `values` : Countries-&gt;Title
-  
+	- `name` : Country<br />
+	- `values` : Countries-&gt;Title
+
+<br />
 Persons<br />
 1. Text Input<br />
-- `name` : Name<br />
+	- `name` : Name<br />
 2. Select Box Link (SBL\#3)<br />
-- `name` : Continent<br />
-- `values` : Continents-&gt;Title<br />
+	- `name` : Continent<br />
+	- `values` : Continents-&gt;Title<br />
 **SAVE the Section first. Next field needs SBL\#3's ID from Database**<br />
 3. Select Box Link Combo (SBLC\#1)<br />
-- `name` : Country<br />
-- `parent` : Persons-&gt;Continent (SBL\#3)<br />
-- `values` : Countries-&gt;Title<br />
-- `relation` : Countries-&gt;Continent (SBL\#1)<br />
+	- `name` : Country<br />
+	- `parent` : Persons-&gt;Continent (SBL\#3)<br />
+	- `values` : Countries-&gt;Title<br />
+	- `relation` : Countries-&gt;Continent (SBL\#1)<br />
 **SAVE the Section first. Next field needs SBLC\#1's ID from Database**<br />
 4. Select Box Link Combo (SBLC\#2)<br />
-- `name` : City<br />
-- `parent` : Persons-&gt;Country (SBLC\#1)<br />
-- `values` : Cities-&gt;Title<br />
-- `relation` : Cities-&gt;Country (SBL\#2)
+	- `name` : City<br />
+	- `parent` : Persons-&gt;Country (SBLC\#1)<br />
+	- `values` : Cities-&gt;Title<br />
+	- `relation` : Cities-&gt;Country (SBL\#2)
 
 Enjoy!
 
+<br />
+## Compatibility ##
+
+      Symphony | Selectbox Link Combo
+---------------|---------------------
+ 2.2   - 2.2.2 | [1.0beta2](https://github.com/vlad-ghita/selectbox_link_field_combo/tree/1.0beta2)
+ 2.2.3 - *     | [latest](https://github.com/vlad-ghita/page_lhandles)
+
+Selectbox Link | Selectbox Link Combo
+---------------|---------------------
+   1.18 - 1.19 | [1.0beta2](https://github.com/vlad-ghita/selectbox_link_field_combo/tree/1.0beta2)
+   1.20 - *    | [latest](https://github.com/vlad-ghita/page_lhandles)
+
+<br />
 ##CHANGE LOG##
 
-1.0beta2<br />
-- Field rewrite. Better error checking on field settings.<br />
-- New and improved JS (good job Nils)
+* 1.1, 27 September 2011
+	* First stable release.
+	* Compatibility with [Selectbox Link v1.20](https://github.com/symphonycms/selectbox_link_field/tree/1.20)
 
-1.0beta	- Initial release.
+* 1.0beta2
+	* Field rewrite. Better error checking on field settings.
+	* New and improved JS (good job Nils)
+
+* 1.0beta	- Initial release.

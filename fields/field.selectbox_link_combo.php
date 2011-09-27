@@ -2,6 +2,7 @@
 
 	if(!defined('__IN_SYMPHONY__')) die('<h2>Symphony Error</h2><p>You cannot directly access this file</p>');
 
+	
 	Class fieldSelectBox_Link_Combo extends fieldSelectBox_Link{
 		
 		
@@ -411,18 +412,22 @@
 
 			if(!empty($states)){
 				foreach($states as $s){
-					$group = array('label' => $s['name'], 'options' => array());
+					$group = array(
+						'label' => $s['name'],
+						'options' => array()
+					);
+					
 					foreach($s['values'] as $id => $v){
 						$group['options'][] = array(
-									$id, 
-									in_array($id, $entry_ids), 
-									General::sanitize($v['value']), 
-									null, 
-									null,
-									array(
-										'data-parent' => $this->get('parent_field_id'),
-										'data-selector' => General::sanitize($v['parent_id'])
-									)
+							$id, 
+							in_array($id, $entry_ids), 
+							General::sanitize($v['value']), 
+							null, 
+							null,
+							array(
+								'data-parent' => $this->get('parent_field_id'),
+								'data-selector' => General::sanitize($v['parent_id'])
+							)
 						);
 					}
 					$options[] = $group;
@@ -456,28 +461,33 @@
 			if(is_array($sections) && !empty($sections)){
 				foreach($sections as $section){
 					
-					$group = array('name' => $section['name'], 'section' => $section['id'], 'values' => array());
+					$group = array(
+						'name' => $section['name'],
+						'section' => $section['id'],
+						'values' => array()
+					);
 
 					// build a list of entry IDs with the correct sort order
-					$entryManager = new EntryManager($this->_Parent);
-					$entries = $entryManager->fetch(NULL, $section['id'], $limit, 0);
+					$em = new EntryManager(Symphony::Engine());
+					$entries = $em->fetch(NULL, $section['id'], $limit, 0, null, null, false, false);
 
 					$results = array();
-					foreach($entries as $entry) $results[] = $entry->get('id');
+					foreach($entries as $entry) {
+						$results[] = (int)$entry['id'];
+					}
 
 					// if a value is already selected, ensure it is added to the list (if it isn't in the available options)
 					if(!is_null($existing_selection) && !empty($existing_selection)){
-						foreach($existing_selection as $key => $entry_id){
-							$x = $this->findFieldIDFromRelationID($entry_id);
-							if($x == $section['field_id']) $results[] = $entry_id;
-						}
+						$entries_for_field = $this->findEntriesForField($existing_selection, $section['field_id']);
+						$results = array_merge($results, $entries_for_field);
 					}
-
+					
 					if(is_array($results) && !empty($results)){
-						foreach($results as $entry_id){
-							$value = $this->findPrimaryFieldValueFromRelationID($entry_id);
-							$group['values'][$entry_id]['value'] = $value['value'];
-							$group['values'][$entry_id]['parent_id'] = $parent_relations[$entry_id];
+						$related_values = $this->findRelatedValues($results);
+						
+						foreach($related_values as $value){
+							$group['values'][$value['id']]['value'] = $value['value'];
+							$group['values'][$value['id']]['parent_id'] = $parent_relations[$value['id']];
 						}
 					}
 
@@ -499,5 +509,4 @@
 			
 			return $relations;
 		}
-
 	}
