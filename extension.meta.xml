@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<extension id="selectbox_link_field_combo" status="released" xmlns="http://symphony-cms.com/schemas/extension/1.0">
+
+	<name>Select Box Link Field Combo</name>
+
+	<description>It allows creation of chained selects in Admin.</description>
+
+	<repo type="github">https://github.com/vlad-ghita/selectbox_link_field_combo</repo>
+
+	<url type="discuss">http://symphony-cms.com/discuss/thread/68202/</url>
+
+	<types>
+		<type>Field Types</type>
+	</types>
+
+	<authors>
+		<author>
+			<name github="vlad-ghita" symphony="vladG">Vlad Ghita</name>
+			<email>vlad.github@gmail.com</email>
+			<website>http://www.xanderadvertising.com</website>
+		</author>
+	</authors>
+
+	<dependencies>
+		<dependency version="1.0">https://github.com/symphonycms/selectbox_link_field</dependency>
+	</dependencies>
+
+	<releases>
+		<release version="1.0" date="2011-09-27" min="2.2.3"><![CDATA[
+			* Initial release.
+		]]></release>
+	</releases>
+
+</extension>
