@@ -110,7 +110,7 @@
 				
 				// Relation ID will always be set in another section. Get from DB
 				
-				$sql_result = Symphony::Database()->fetch("SELECT `related_field_id` FROM `sym_fields_selectbox_link` WHERE field_id = '{$relation_field_id}'");
+				$sql_result = Symphony::Database()->fetch("SELECT `related_field_id` FROM `tbl_fields_selectbox_link` WHERE field_id = '{$relation_field_id}'");
 				$new_relation_values= $sql_result[0]['related_field_id'];
 
 				if ( $new_parent_values != $new_relation_values ) {
