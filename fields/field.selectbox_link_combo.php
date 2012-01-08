@@ -1,7 +1,8 @@
 <?php
 
 	if(!defined('__IN_SYMPHONY__')) die('<h2>Symphony Error</h2><p>You cannot directly access this file</p>');
-
+	
+	require_once(EXTENSIONS . '/selectbox_link_field/fields/field.selectbox_link.php');
 	
 	Class fieldSelectBox_Link_Combo extends fieldSelectBox_Link{
 		
