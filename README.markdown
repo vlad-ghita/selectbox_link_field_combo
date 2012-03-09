@@ -3,8 +3,8 @@ Select Box Link Field Combo
 
 It allows creation of chained selects in Admin.
 
-* Version: 2.2
-* Build Date: 2011-09-27
+* Version: 1.1.1
+* Build Date: 2012-03-09
 * Authors:
 	- [Vlad Ghita](http://www.xanderadvertising.com)
 * Requirements:
