@@ -31,6 +31,10 @@
 				) ENGINE=MyISAM;"
 			);
 		}
+
+		public function canToggle(){
+			return false;
+		}
 		
 		public function commit(){
 			if(!Field::commit()) return false;

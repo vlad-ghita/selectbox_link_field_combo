@@ -5,8 +5,8 @@
 		public function about(){
 			return array(
 				'name' => 'Field: Select Box Link Combo',
-				'version' => '1.0',
-				'release-date' => '2011-09-27',
+				'version' => '1.1.1',
+				'release-date' => '2012-03-09',
 				'author' => array(
 					'name' => 'Vlad Ghita',
 					'email' => 'vlad_micutul@yahoo.com'

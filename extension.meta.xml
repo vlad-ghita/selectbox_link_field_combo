@@ -17,16 +17,20 @@
 	<authors>
 		<author>
 			<name github="vlad-ghita" symphony="vladG">Vlad Ghita</name>
-			<email>vlad.github@gmail.com</email>
+			<email>vlad_micutul@yahoo.com</email>
 			<website>http://www.xanderadvertising.com</website>
 		</author>
 	</authors>
 
 	<dependencies>
-		<dependency version="1.0">https://github.com/symphonycms/selectbox_link_field</dependency>
+		<dependency version="1.20">https://github.com/symphonycms/selectbox_link_field</dependency>
 	</dependencies>
 
 	<releases>
+		<release version="1.1.1" date="2012-03-09" min="2.2.3"><![CDATA[
+			* Disabled toggle values `With selected` dropdown on index pages.
+		]]></release>
+
 		<release version="1.0" date="2011-09-27" min="2.2.3"><![CDATA[
 			* Initial release.
 		]]></release>
