@@ -10,28 +10,27 @@
 		'release-date' => '2009-11-09'
 	);
 
-	
+
 	/*
-	 * EXTENSION: Field: Select Box Link
-	 * Localisation strings
-	 */
+		 * EXTENSION: Field: Select Box Link
+		 * Localisation strings
+		 */
 
 	$dictionary = array(
 
-		'Select Box Link' => 
+		'Select Box Link' =>
 		'Selectiebox-link',
-		
+
 		'None' =>
 		false,
 
-		'Options' => 
+		'Options' =>
 		'Opties',
 
-		'Limit to the %s most recent entries' => 
+		'Limit to the %s most recent entries' =>
 		'Limiteer tot de %s meest recente items',
 
-		'Allow selection of multiple options' => 
+		'Allow selection of multiple options' =>
 		'Sta selectie van meerdere opties toe'
 
 	);	
-	

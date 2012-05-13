@@ -27,6 +27,10 @@
 	</dependencies>
 
 	<releases>
+		<release version="1.2" date="2012-05-11" min="2.3"><![CDATA[
+			* Updated for Symphony 2.3.
+		]]></release>
+
 		<release version="1.1.1" date="2012-03-09" min="2.2.3"><![CDATA[
 			* Disabled toggle values `With selected` dropdown on index pages.
 		]]></release>

@@ -16,19 +16,19 @@
 	 */
 	$dictionary = array(
 
-		'Select Box Link' => 
+		'Select Box Link' =>
 		'Giunzione fra sezioni',
 
-		'None' => 
+		'None' =>
 		'Nessuno',
 
-		'Options' => 
+		'Options' =>
 		'Fonti',
 
-		'Limit to the %s most recent entries' => 
+		'Limit to the %s most recent entries' =>
 		'Limita alle %s voci più recenti',
 
-		'Allow selection of multiple options' => 
+		'Allow selection of multiple options' =>
 		'Consenti la selezione di pi&ugrave; elementi',
 
 	);

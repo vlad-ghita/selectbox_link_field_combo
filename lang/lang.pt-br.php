@@ -18,20 +18,19 @@
 
 	$dictionary = array(
 
-		'Select Box Link' => 
+		'Select Box Link' =>
 		'Select Box Link',
 
 		'None' =>
 		'Nenhum',
 
-		'Options' => 
+		'Options' =>
 		'Opções',
 
-		'Limit to the %s most recent entries' => 
+		'Limit to the %s most recent entries' =>
 		'Limitar para as %s recentes entradas',
 
-		'Allow selection of multiple options' => 
+		'Allow selection of multiple options' =>
 		'Permitir seleção de múltiplas opções'
 
 	);
-	

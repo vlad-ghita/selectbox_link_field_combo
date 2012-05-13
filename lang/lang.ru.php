@@ -9,29 +9,28 @@
 		),
 		'release-date' => '2009-11-27'
 	);
-	
-	
+
+
 	/*
-	 * EXTENSION: Field: Select Box Link
-	 * Localisation strings
-	 */
+		 * EXTENSION: Field: Select Box Link
+		 * Localisation strings
+		 */
 
 	$dictionary = array(
-	
-		'Select Box Link' => 
+
+		'Select Box Link' =>
 		'Ссылка на сущность',
-		
+
 		'None' =>
 		false,
 
-		'Options' => 
+		'Options' =>
 		'Опции',
 
-		'Limit to the %s most recent entries' => 
+		'Limit to the %s most recent entries' =>
 		'Ограничение на %s последних записей.',
 
-		'Allow selection of multiple options' => 
+		'Allow selection of multiple options' =>
 		'Разрешить выбор нескольких опций.'
 
 	);
-	

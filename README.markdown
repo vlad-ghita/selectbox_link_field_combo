@@ -3,15 +3,13 @@ Select Box Link Field Combo
 
 It allows creation of chained selects in Admin.
 
-* Version: 1.1.1
-* Build Date: 2012-03-09
+* Version: 1.2
+* Build Date: 2012-05-11
 * Authors:
 	- [Vlad Ghita](http://www.xanderadvertising.com)
 * Requirements:
-	- Symphony 2.2.x
+	- Symphony 2.3
 	- [Select Box Link Field](https://github.com/symphonycms/selectbox_link_field)
-
-Thank you all other Symphony Extensions developers for your inspirational work.
 
 
 

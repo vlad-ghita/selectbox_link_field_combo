@@ -1,19 +1,12 @@
 <?php
 
-	Class extension_selectbox_link_field_combo extends Extension{
+	if( !defined('__IN_SYMPHONY__') ) die('<h2>Error</h2><p>You cannot directly access this file</p>');
 
-		public function about(){
-			return array(
-				'name' => 'Field: Select Box Link Combo',
-				'version' => '1.1.1',
-				'release-date' => '2012-03-09',
-				'author' => array(
-					'name' => 'Vlad Ghita',
-					'email' => 'vlad_micutul@yahoo.com'
-				)
-			);
-		}
-		
+
+
+	Class extension_selectbox_link_field_combo extends Extension
+	{
+
 		public function getSubscribedDelegates(){
 			return array(
 				array(
@@ -26,15 +19,15 @@
 
 		public function appendAssets($context){
 			$callback = Administration::instance()->getPageCallback();
-			if (	$callback['driver'] == 'publish' 
-					&& in_array($callback['context']['page'], array('new', 'edit'))
-				) {
-				Administration::instance()->Page->addScriptToHead(URL . '/extensions/selectbox_link_field_combo/assets/selectbox_link_field_combo.publish.js', 100);
+			if( $callback['driver'] == 'publish'
+				&& in_array($callback['context']['page'], array('new', 'edit'))
+			){
+				Administration::instance()->Page->addScriptToHead(URL.'/extensions/selectbox_link_field_combo/assets/selectbox_link_field_combo.publish.js', 100);
 			}
 		}
-		
+
 		public function uninstall(){
-			if(parent::uninstall() == true){
+			if( parent::uninstall() == true ){
 				Symphony::Database()->query("DROP TABLE `tbl_fields_selectbox_link_combo`");
 				return true;
 			}
@@ -58,7 +51,7 @@
 				  KEY `field_id` (`field_id`)
 				)");
 			}
-			catch(Exception $e){
+			catch( Exception $e ){
 				return false;
 			}
 
